@@ -92,5 +92,38 @@ namespace CodewarsTasks
         {
             return n * n * n;
         }
+
+        /// <summary>
+        /// The <c>MyLanguages</c> method filters and sorts programming languages based on their scores.
+        /// It returns a collection of languages with scores greater than or equal to 60, sorted in descending order of scores.
+        /// </summary>
+        /// <param name="results">A dictionary where keys are language names and values are scores.</param>
+        /// <returns>An enumerable collection of language names that meet the criteria.</returns>
+        public static IEnumerable<string> MyLanguages(Dictionary<string, int> results)
+        {
+            var sortedDict = results
+                .Where(lang => lang.Value >= 60)
+                .OrderByDescending(lang => lang.Value)
+                .Select(lang => lang.Key);
+
+            return sortedDict;
+        }
+
+        /// <summary>
+        /// The <c>SymmetricPoint</c> method calculates the symmetric point of a given point <paramref name="p"/> relative to another point <paramref name="q"/>.
+        /// The symmetric point is calculated using the formula: 
+        /// x' = 2 * q[0] - p[0], y' = 2 * q[1] - p[1].
+        /// </summary>
+        /// <param name="p">An array representing the coordinates of the original point [x, y].</param>
+        /// <param name="q">An array representing the coordinates of the reference point [x, y].</param>
+        /// <returns>An array representing the coordinates of the symmetric point [x', y'].</returns>
+        public static int[] SymmetricPoint(int[] p, int[] q)
+        {
+            int x = q[0] * 2 - p[0];
+            int y = q[1] * 2 - p[1];
+            return new int[] { x, y };
+        }
+
+
     }
 }

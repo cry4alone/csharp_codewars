@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.SymbolStore;
 
 namespace CodewarsTasks
 {
@@ -34,8 +35,27 @@ namespace CodewarsTasks
             Console.WriteLine("\nRowSumOddNumbers Method:");
             Console.WriteLine(CodewarsTasks.RowSumOddNumbers(1));     
             Console.WriteLine(CodewarsTasks.RowSumOddNumbers(2));     
-            Console.WriteLine(CodewarsTasks.RowSumOddNumbers(3));     
+            Console.WriteLine(CodewarsTasks.RowSumOddNumbers(3));
 
+            Console.WriteLine("\nMyLanguages Method:");
+            var resMyLang = CodewarsTasks.MyLanguages(new Dictionary<string, int>
+            {
+                { "Java", 55 },
+                { "Python", 80 },
+                { "C#", 75 },
+                { "JavaScript", 60 },
+                { "Ruby", 45 }
+            });
+            foreach(var lang in resMyLang)
+            {
+                Console.WriteLine(lang);
+            }
+
+            Console.WriteLine("\nSymmetricPoint Method:");
+            int[] p = { 1, 2 };
+            int[] q = { 3, 4 };
+            int[] symmetricPoint = CodewarsTasks.SymmetricPoint(p, q);
+            Console.WriteLine($"{symmetricPoint[0]}, {symmetricPoint[1]}");
             Console.WriteLine("=== End of Tasks ===");
         }
     }
